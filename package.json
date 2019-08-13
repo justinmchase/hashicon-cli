@@ -5,7 +5,10 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc-watch --onSuccess \"node .\""
+    "start": "tsc-watch --onSuccess \"hashicon -v\""
+  },
+  "bin": {
+    "hashicon": "./bin/hashicon-cli.js"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +16,13 @@
   "dependencies": {
     "canvas": "^2.5.0",
     "hashicon": "^0.2.0",
-    "typescript": "^3.5.3"
+    "source-map-support": "^0.5.13",
+    "typescript": "^3.5.3",
+    "yargs": "^13.3.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.1",
+    "sade": "^1.6.1",
     "tsc-watch": "^2.4.0"
   }
 }
