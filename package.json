@@ -1,6 +1,6 @@
 {
   "name": "hashicon-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple cli for generating hashicons",
   "main": "./dist/index.js",
   "scripts": {
