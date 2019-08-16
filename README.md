@@ -1,5 +1,5 @@
 # hashicon-cli
-A simple cli tool you can use to generate hashicons from hashes.
+A simple cli tool you can use to generate [hashicons](https://www.npmjs.com/package/hashicon) from hashes.
 
 It can print data-urls to stdout or generate an image to disk.
 
