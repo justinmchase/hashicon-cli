@@ -2,6 +2,7 @@
 node_modules
 tsconfig.json
 src
+data
 *.tgz
 *.tsbuildinfo
 *.png

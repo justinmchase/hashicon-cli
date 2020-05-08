@@ -4,7 +4,6 @@
   "description": "A simple cli for generating hashicons",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc-watch --onSuccess \"hashicon -v\"",
     "build": "tsc"
   },
@@ -39,14 +38,15 @@
     "node": ">=8"
   },
   "dependencies": {
-    "canvas": "^2.5.0",
+    "canvas": "^2.6.1",
     "hashicon": "^0.3.0",
-    "source-map-support": "^0.5.13",
-    "typescript": "^3.5.3",
-    "yargs": "^13.3.0"
+    "source-map-support": "^0.5.19",
+    "typescript": "^3.8.3",
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "@types/node": "^12.7.1",
-    "tsc-watch": "^2.4.0"
+    "@types/node": "^12.12.38",
+    "@types/yargs": "^15.0.4",
+    "tsc-watch": "^4.2.3"
   }
 }

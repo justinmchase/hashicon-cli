@@ -5,8 +5,7 @@ import { createCanvas } from 'canvas'
 
 import yargs from 'yargs'
 
-const argv = yargs
-  .nargs('hash', 1)
+const app = yargs
   .option('data-url', {
     alias: 'd',
     describe: 'True to print out a data-url to stdout',
@@ -18,15 +17,44 @@ const argv = yargs
     string: true
   })
   .help('help')
-  .argv
+  .example('hashicon "Hello World!" -o out.png', '')
+  .showHelpOnFail(true)
 
+const argv = app.argv
 const { _: [hash], dataUrl, out } = argv
-    
+
+if (!hash) {
+  console.log('A string to hash is required')
+  console.log()
+
+  app.showHelp()
+  process.exit(1)
+}
+
+if (!out && !dataUrl) {
+  console.log('Please specify -o or -d for output format')
+  console.log()
+
+  app.showHelp()
+  process.exit(1)
+}
+
 const icon = hashicon(hash, { createCanvas })
 if (out) {
-
   const fullPath = path.resolve(out)
-  fs.writeFileSync(fullPath, icon.toBuffer())
+
+  const ext = path.extname(fullPath)
+  const stream = (() => {
+    switch (ext.toLowerCase()) {
+      case '.jpg':
+      case '.jpeg':
+        return icon.createJPEGStream()
+      case '.png':
+      default:
+        return icon.createPNGStream()
+    }
+  })()
+  stream.pipe(fs.createWriteStream(fullPath, 'binary'))
 }
 
 if (dataUrl) {
